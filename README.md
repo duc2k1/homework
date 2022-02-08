@@ -50,6 +50,9 @@ Su dung json generator để tạo dữ liệu:
 - thêm field “plot” cho bộ phim “Titatic” với nội dung 1 đoạn văn tuỳ ý: updateOne({name: "Titanic"}, {$set: {plot: "test test"}})
 - thêm field “recommended” với giá trị là “true” cho tất cả phim có điểm đánh giá hơn 4: updateMany({rating: {$gt: 4}}, {$set: {recommended: "true"}})
 - cập nhật hoặc thêm mới bộ phim nếu chưa có với tên là “Game of Throne” và trả về kết quả mới nhất: updateOne({name: "Game of Throne"}, {$set: {name: "Game of Throne"}}, {upsert: true})
+
+### 6:
+
 - sử dụng $match, $group và $count để đếm từng mức điểm đánh giá có bao nhiêu phim: aggregate([{$match: {rating: {$gt: 0}}}, {$group: {\_id: "$rating", count: {$sum: 1}}}, {$sort: {\_id: 1}}])
 - thêm dữ liệu “year” cho tất cả bộ phim cho kết quả trả về. Gợi ý: Hãy sử dụng $dateToString và $addField : aggregate([{$match: {release_date: {$exists: true}}}, {$addFields: {year: {$dateToString: {format: "%Y", date: "$release_date"}}}}, {$sort: {year: 1}}])
 - sắp xếp phim theo điểm đánh giá từ cao tới thấp, bỏ qua 2 bộ phim đầu tiên và láy ra 5 bộ phim tiếp theo. Gợi ý: Sử dụng $sort, $skip và $limit: aggregate([{$match: {rating: {$gt: 0}}}, {$sort: {rating: -1}}, {$skip: 2}, {$limit: 5}])
