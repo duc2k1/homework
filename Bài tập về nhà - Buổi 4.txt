@@ -1,0 +1,9 @@
+Câu 1: Endpoint mặc định để gọi API graphql là gì?
+- /graphql
+Câu 2: Dùng method nào để gọi API graphql?
+- POST
+Câu 3: Sự khác nhau giữa type Query và type Mutation là gì? Tại sao phải khai báo api tách ra giữa Query và Mutation?
+- Mutation là các hàm để thực hiện các công việc khác nhau, còn Query là các hàm để lấy dữ liệu từ database
+- Mutation có thể thực hiện các công việc khác nhau như tạo mới, sửa, xóa, đổi trạng thái, đổi thứ tự, ...
+- Query có thể lấy dữ liệu từ database
+Câu 4: Khởi tạo dữ liệu cho model Address chứa thông tin tỉnh/thành, quận/huyện, phường/xã và import vào database mongo.
